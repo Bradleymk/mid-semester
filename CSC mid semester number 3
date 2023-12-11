@@ -1,0 +1,51 @@
+#include <iostream>
+
+struct StackNode {
+    float data;
+    StackNode* next;
+};
+
+class Stack {
+private:
+    StackNode* top;
+
+public:
+    Stack() : top(nullptr) {}
+
+    / Function to push a real number onto the stack
+    void push(float value) {
+        StackNode* newNode = new StackNode;
+        newNode->data = value;
+        newNode->next = top;
+        top = newNode;
+        std::cout << value << " has been pushed onto the stack." << std::endl;
+    }
+
+    / Function to check if the stack is empty
+    bool isEmpty() {
+        return top == nullptr;
+    }
+
+    / Function to display the top element of the stack
+    float peek() {
+        if (isEmpty()) {
+            std::cerr << "Stack is empty." << std::endl;
+            return 0; // Assuming 0 represents an empty stack
+        }
+        return top->data;
+    }
+
+    / Destructor to deallocate memory when the stack is destroyed
+    ~Stack() {
+        while (!isEmpty()) {
+            StackNode* temp = top;
+            top = top->next;
+            delete temp;
+  
+
+    // Display the top element
+    std::cout << "Top element of the stack: " << myStack->peek() << std::endl;
+
+    delete myStack; // Deallocating the dynamically allocated stack
+
+    return 0;
